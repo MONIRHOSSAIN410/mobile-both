@@ -3,13 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node api.js && next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "node api.js && next start",
     "lint": "eslint src",
     "preflight": "node scripts/preflight.mjs",
     "typecheck": "tsc --noEmit",
-    "dev:clean": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\" && next dev",
+    "dev:clean": "node api.js && node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\" && next dev",
     "build:clean": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\" && next build"
   },
   "dependencies": {
