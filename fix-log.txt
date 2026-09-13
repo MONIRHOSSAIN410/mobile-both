@@ -1,0 +1,102 @@
+==== fix-backend-git v2 START ==== 
+git version 2.55.0.windows.3
+ 
+--- STEP 1: move nested backend\.git out --- 
+        1 dir(s) moved.
+moved backend\.git to D:\myproject-backend-git-backup 
+ 
+--- STEP 2: drop the empty gitlink entry --- 
+rm 'backend'
+fatal: pathspec 'backend' did not match any files
+ 
+--- STEP 3: stage backend files --- 
+warning: in the working copy of 'backend/.env.example', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/.gitignore', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/api/index.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/package-lock.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/package.json', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/scripts/check.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/scripts/db-doctor.mjs', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/server.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/app.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/config/db.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/config/env.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/controllers/authController.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/controllers/brandController.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/controllers/categoryController.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/controllers/oauthController.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/controllers/orderController.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/controllers/productController.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/middleware/asyncHandler.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/middleware/auth.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/middleware/cacheJson.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/middleware/errorHandler.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/middleware/notFound.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/middleware/validate.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/models/Brand.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/models/Category.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/models/Order.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/models/Product.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/models/User.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/routes/authRoutes.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/routes/brandRoutes.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/routes/categoryRoutes.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/routes/index.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/routes/orderRoutes.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/routes/productRoutes.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/seed/data.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/seed/seed.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/utils/ApiError.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/utils/queryFeatures.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/utils/serialize.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/utils/slugify.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/src/utils/token.js', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'backend/vercel.json', LF will be replaced by CRLF the next time Git touches it
+ 
+--- STEP 4: secret safety check --- 
+RESULT: ABORT-SECRET-FILE-WOULD-BE-COMMITTED 
+backend
+backend/.env.example
+backend/.gitignore
+backend/api/index.js
+backend/package-lock.json
+backend/package.json
+backend/scripts/check.mjs
+backend/scripts/db-doctor.mjs
+backend/server.js
+backend/src/app.js
+backend/src/config/db.js
+backend/src/config/env.js
+backend/src/controllers/authController.js
+backend/src/controllers/brandController.js
+backend/src/controllers/categoryController.js
+backend/src/controllers/oauthController.js
+backend/src/controllers/orderController.js
+backend/src/controllers/productController.js
+backend/src/middleware/asyncHandler.js
+backend/src/middleware/auth.js
+backend/src/middleware/cacheJson.js
+backend/src/middleware/errorHandler.js
+backend/src/middleware/notFound.js
+backend/src/middleware/validate.js
+backend/src/models/Brand.js
+backend/src/models/Category.js
+backend/src/models/Order.js
+backend/src/models/Product.js
+backend/src/models/User.js
+backend/src/routes/authRoutes.js
+backend/src/routes/brandRoutes.js
+backend/src/routes/categoryRoutes.js
+backend/src/routes/index.js
+backend/src/routes/orderRoutes.js
+backend/src/routes/productRoutes.js
+backend/src/seed/data.js
+backend/src/seed/seed.js
+backend/src/utils/ApiError.js
+backend/src/utils/queryFeatures.js
+backend/src/utils/serialize.js
+backend/src/utils/slugify.js
+backend/src/utils/token.js
+backend/vercel.json
+ 
+==== fix-backend-git v2 DONE ==== 
