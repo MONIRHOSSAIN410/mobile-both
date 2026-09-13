@@ -3,14 +3,14 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
+    "dev": "node init && next dev",
+    "build": "node init && next build",
+    "start": "node init && next start",
     "lint": "eslint src",
     "preflight": "node scripts/preflight.mjs",
     "typecheck": "tsc --noEmit",
-    "dev:clean": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\" && next dev",
-    "build:clean": "node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\" && next build"
+    "dev:clean": "node init && node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\" && next dev",
+    "build:clean": "node init && node -e \"require('fs').rmSync('.next',{recursive:true,force:true})\" && next build"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1",
