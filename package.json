@@ -1,0 +1,17 @@
+{
+  "name": "mobile-shop",
+  "private": true,
+  "type": "module",
+  "description": "Tooling shared by the frontend and backend workspaces",
+  "scripts": {
+    "setup": "node tools/setup-env.mjs",
+    "setup:force": "node tools/setup-env.mjs --force",
+    "clean": "node tools/clean.mjs",
+    "images": "node tools/generate-product-images.mjs",
+    "images:force": "node tools/generate-product-images.mjs --force"
+  },
+  "devDependencies": {
+    "playwright": "^1.58.0",
+    "sharp": "^0.35.4"
+  }
+}

@@ -1,0 +1,304 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ------------------------------------------------------------------ */
+/*  Design tokens — every colour is a CSS variable, so the whole site   */
+/*  re-themes instantly (dark mode + the accent switcher in the header) */
+/* ------------------------------------------------------------------ */
+
+:root {
+  --radius: 0.65rem;
+
+  /* accent (gold by default, swapped at runtime by <AccentProvider/>) */
+  --brand: oklch(0.728 0.138 89.73);
+  --brand-strong: oklch(0.6757 0.124 86.79);
+  --brand-soft: oklch(0.8179 0.1252 92.39);
+  --brand-foreground: oklch(0.1591 0 0);
+
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.2046 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.2046 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.2046 0 0);
+
+  --primary: var(--brand);
+  --primary-foreground: var(--brand-foreground);
+  --secondary: oklch(0.9702 0 0);
+  --secondary-foreground: oklch(0.2046 0 0);
+  --muted: oklch(0.9702 0 0);
+  --muted-foreground: oklch(0.5555 0 0);
+  --accent: oklch(0.9702 0 0);
+  --accent-foreground: oklch(0.2046 0 0);
+  --destructive: oklch(0.5771 0.2152 27.33);
+  --destructive-foreground: oklch(1 0 0);
+  --success: oklch(0.6271 0.1699 149.21);
+  --warning: oklch(0.7686 0.1647 70.08);
+
+  --border: oklch(0.9219 0 0);
+  --input: oklch(0.9219 0 0);
+  --ring: var(--brand);
+
+  /* chrome (the black bars in the header / footer) */
+  --chrome: oklch(0.1591 0 0);
+  --chrome-foreground: oklch(0.9702 0 0);
+  --chrome-muted: oklch(0.7155 0 0);
+  --chrome-border: oklch(0.2686 0 0);
+
+  --surface: oklch(0.9851 0 0);
+  --shadow-color: 0 0 0;
+
+  /* high-contrast CTA — inverts with the theme so it never sinks into the card */
+  --invert: oklch(0.1591 0 0);
+  --invert-foreground: oklch(0.9851 0 0);
+}
+
+.dark {
+  --background: oklch(0.1448 0 0);
+  --foreground: oklch(0.9702 0 0);
+  --card: oklch(0.1913 0 0);
+  --card-foreground: oklch(0.9702 0 0);
+  --popover: oklch(0.1913 0 0);
+  --popover-foreground: oklch(0.9702 0 0);
+
+  --primary: var(--brand);
+  --primary-foreground: oklch(0.1448 0 0);
+  --secondary: oklch(0.2603 0 0);
+  --secondary-foreground: oklch(0.9702 0 0);
+  --muted: oklch(0.2178 0 0);
+  --muted-foreground: oklch(0.7155 0 0);
+  --accent: oklch(0.2603 0 0);
+  --accent-foreground: oklch(0.9702 0 0);
+  --destructive: oklch(0.6271 0.2152 27.33);
+  --destructive-foreground: oklch(0.9702 0 0);
+
+  --border: oklch(0.3012 0 0);
+  --input: oklch(0.3012 0 0);
+
+  --chrome: oklch(0.1913 0 0);
+  --chrome-foreground: oklch(0.9702 0 0);
+  --chrome-muted: oklch(0.7155 0 0);
+  --chrome-border: oklch(0.3012 0 0);
+
+  --surface: oklch(0.1690 0 0);
+  --shadow-color: 0 0 0;
+
+  --invert: oklch(0.9550 0 0);
+  --invert-foreground: oklch(0.1448 0 0);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-soft: var(--brand-soft);
+  --color-brand-foreground: var(--brand-foreground);
+
+  --color-chrome: var(--chrome);
+  --color-chrome-foreground: var(--chrome-foreground);
+  --color-chrome-muted: var(--chrome-muted);
+  --color-chrome-border: var(--chrome-border);
+  --color-surface: var(--surface);
+  --color-invert: var(--invert);
+  --color-invert-foreground: var(--invert-foreground);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), var(--font-sans), sans-serif;
+
+  --animate-accordion-down: accordion-down 0.22s ease-out;
+  --animate-accordion-up: accordion-up 0.22s ease-out;
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  }
+  /* stop layout shift when a dialog locks the scrollbar */
+  html {
+    scrollbar-gutter: stable;
+  }
+}
+
+@layer utilities {
+  .container-page {
+    @apply mx-auto w-full max-w-[1400px] px-4 sm:px-6 lg:px-8;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* animated gold sheen used on hero words + the instalment button */
+  .brand-sheen {
+    background-image: linear-gradient(
+      110deg,
+      var(--brand-strong) 0%,
+      var(--brand-soft) 45%,
+      var(--brand-strong) 90%
+    );
+    background-size: 200% 100%;
+    animation: sheen 6s linear infinite;
+  }
+
+  .glass {
+    background-color: color-mix(in oklab, var(--background) 72%, transparent);
+    backdrop-filter: blur(14px) saturate(150%);
+  }
+}
+
+@keyframes sheen {
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+/* Respect users who ask for less motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* thin, themed scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--muted);
+}
+::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--muted-foreground) 45%, transparent);
+  border-radius: 999px;
+  border: 2px solid var(--muted);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand);
+}
+
+/* ------------------------------------------------------------------ */
+/*  Entrance animations — CSS, so nothing waits for JavaScript          */
+/* ------------------------------------------------------------------ */
+/*  These replace the old motion/react `initial={{opacity: 0}}` +       */
+/*  `whileInView` wrappers. Those shipped HTML that was invisible until */
+/*  the bundle had hydrated and an observer had fired; a CSS animation  */
+/*  runs on the first paint instead.                                    */
+
+@keyframes reveal-in {
+  from {
+    opacity: 0;
+    transform: translate3d(var(--reveal-x, 0), var(--reveal-y, 18px), 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.reveal {
+  animation: reveal-in var(--reveal-duration, 0.5s) cubic-bezier(0.22, 1, 0.36, 1)
+    var(--reveal-delay, 0s) both;
+}
+
+@keyframes hero-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+.hero-float {
+  animation: hero-float 6s ease-in-out infinite;
+}
+
+/* Never let an entrance animation be the reason content is invisible. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .hero-float {
+    animation: none !important;
+    opacity: 1;
+    transform: none;
+  }
+}
